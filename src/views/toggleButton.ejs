@@ -18,6 +18,14 @@
                 currentSection = editor.getAttribute("id");
             }
         });
+        if (
+            scrollY >=
+            editors[editors.length - 1].clientHeight +
+            editors[editors.length - 1].clientHeight
+        ) {
+            currentSection = "";
+        }
+
 
         pills.forEach((pill) => {
             pill.classList.remove("toggle-active");

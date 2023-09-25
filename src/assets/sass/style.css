@@ -1628,6 +1628,7 @@ button {
   justify-content: center;
   font-weight: 500;
   background-color: #2d2f34;
+  z-index: 100;
 }
 @media (max-width: 768px) {
   .mobile-top-bar {
@@ -2170,7 +2171,7 @@ button {
 
 .content-section {
   background-color: #1f2023;
-  z-index: 100;
+  z-index: 10;
   position: relative;
 }
 
