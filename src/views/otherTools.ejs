@@ -1,0 +1,14 @@
+<% items.forEach(function(item) { %>
+    <a class="othertools__item" title="<%= item.title %>" href="<%= item.href %>">
+        <div class="icon-wrapper">
+            <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                stroke-linejoin="round" color="<%= item.color %>" style=`color:<%=item.color %>` height="24" width="24"
+                xmlns="http://www.w3.org/2000/svg">
+                <%- item.svg %>
+            </svg>
+        </div>
+        <span class="text">
+            <%= item.text %>
+        </span>
+    </a>
+    <% }); %>

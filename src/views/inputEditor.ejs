@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://unpkg.com/htmx.org@1.9.5"></script>
+</head>
+
+<body>
+    <div id="editorContainer" style="height: 500px; width: auto;" hx-trigger="load" class="editor__code"></div>
+    <script>
+        // Define a JavaScript variable to hold the JSON data
+        jsonData = `<%= JSON.stringify(code, null, 2) %>`;
+
+        require(["vs/editor/editor.main"], function () {
+            editor = monaco.editor.create(document.getElementById("editorContainer"), {
+                value: jsonData.replace(/&#34;/g, '"'),
+                language: "json",
+                theme: "myTheme",
+                readOnly: false,
+                fontSize: 14,
+                lineHeight: 20,
+                minimap: { enabled: false },
+                fontFamily: "Droid Sans Mono",
+                wordWrap: "bounded",
+                wordWrapColumn: 55,
+            });
+            editor.onDidFocusEditorWidget(() => {
+                editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter, (e) => {
+                    document.getElementById("submit-button").click();
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://unpkg.com/htmx.org@1.9.5"></script>
+    <script src="https://unpkg.com/monaco-editor@latest/min/vs/loader.js"></script>
+    <link rel="stylesheet" href="/assets/sass//pro-utils.css">
+    <link rel="stylesheet" href="/assets/sass/style.css">
+    <link rel="stylesheet" href="https://fonts.programiz.com/fonts.css" />
+</head>
+
+<body>
+    <div class="toast__wrapper">
+        <div id="toastify"></div>
+    </div>
+    <div hx-get="/header" hx-trigger="load">
+        Loading...
+    </div>
+    <div class="editor">
+        <div class="container editor__wrapper">
+            <div class="editor__input section__editor editor--half-width" id="input">
+                <div hx-get="/inputHeader" hx-trigger="load" class="editor__header">
+                    Loading..
+                </div>
+                <div id="editorContainer" style="height: 500px; width: auto;" hx-trigger="load"
+                    data-code="// write your json code here" data-isOutput="false" class="editor__code"></div>
+            </div>
+            <div class="editor__output section__editor">
+                <div class="editor__output-header" hx-get="/outputHeader" hx-trigger="load">
+                    Loading...
+                </div>
+                <div id="editorContainer2" style="height: 500px; width: auto;" hx-trigger="load" data-isOutput="true"
+                    class="editor__code editor__code--border-left-n">
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="content-section">
+        <div class="container content-frame">
+            <div hx-get="/contentWrapper" hx-trigger="load" class="content-wrapper">
+                Loading...
+            </div>
+            <div hx-get="/othersTools" hx-trigger="load" class="othertools-wrapper">
+                Loading...
+            </div>
+        </div>
+    </section>
+    <footer hx-get="/footer" hx-trigger="load" class="pro-footer footer dark">
+        Loading...
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

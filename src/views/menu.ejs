@@ -1,0 +1,12 @@
+<% items.forEach(function(item) { %>
+    <a class="dropdown-item" title="<%= item.title %>" href="<%= item.href %>">
+        <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+            stroke-linejoin="round" color="<%= item.color %>" height="18" width="18" xmlns="http://www.w3.org/2000/svg"
+            style=`color: <%=item.color %>;`>
+            <%- item.svg %>
+        </svg>
+        <span class="dropdown-text">
+            <%= item.text %>
+        </span>
+    </a>
+    <% }); %>

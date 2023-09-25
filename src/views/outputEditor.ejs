@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://unpkg.com/htmx.org@1.9.5"></script>
+</head>
+
+<body>
+    <div id="editorContainer2" style="height: 500px; width: auto;" hx-trigger="load" data-isOutput="true"
+        class="editor__code editor__code--border-left-n">
+    </div>
+    <script>
+        require(["vs/editor/editor.main"], function () {
+            editor2 = monaco.editor.create(document.getElementById("editorContainer2"), {
+                language: "yaml",
+                theme: "myTheme",
+                readOnly: true,
+                fontSize: 14,
+                lineHeight: 20,
+                minimap: { enabled: false },
+                fontFamily: "Droid Sans Mono",
+                wordWrap: "bounded",
+                wordWrapColumn: 55,
+                value: `<%= code %>`
+            });
+        })
+    </script>
+</body>
+
+</html>

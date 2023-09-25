@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://unpkg.com/htmx.org@1.9.5"></script>
+</head>
+
+<body>
+    <div class="editor__title">
+        <h4>Input your JSON code</h4>
+    </div>
+    <div class="editor__options">
+        <div id="submit-button" hx-post="/runCode" hx-vals='js:{"code":editor.getValue()}' hx-trigger="click"
+            hx-target="#editorContainer2" hx-swap="outerHTML">
+            <button type="submit" class="pro-btn editor__btn pro-btn--compact pro-btn--primary" title="Validate">
+                Convert
+            </button>
+        </div>
+        <div class="flex">
+            <button class="pro-btn editor__menu pro-btn--default pro-btn--primary" title="Menu" onclick="showMenu()">
+                <div class="menu-img-wrapper"><img alt="vertical menu" loading="lazy" width="18" height="18"
+                        decoding="async" data-nimg="1" style="color:transparent" src="/assets/images/more-vertical.svg">
+                </div>
+            </button>
+            <div class="pro-popover-content popover-bottomRight has-arrow pro-dropdown ready editor__menu-content"
+                style="top: 86.6px;left: 638.2px;">
+                <label class="upload-file editor--margin-top-zero" title="Upload a file">
+                    Upload a file
+                    <!-- <input type="file" class="editor__menu-content-element" name="myFile" id="upload-file"
+                        onchange="readTheUploadedFile()"> -->
+                    <!-- <input type="file" class="editor__menu-content-element" name="myFile" id="upload-file"
+                        hx-post="/uploadFile" hx-trigger="change" hx-swap="none"> -->
+                    <form hx-post="/uploadFile" hx-trigger="change" hx-target="#editorContainer" hx-swap="outerHTML"
+                        enctype="multipart/form-data" id="file-upload">
+                        <input type="file" class="editor__menu-content-element" name="myFile" id="upload-file">
+                        <input type="submit" value="Upload">
+                    </form>
+
+                </label>
+            </div>
+        </div>
+    </div>
+    <script>
+        // document.addEventListener('htmx:afterRequest', function (evt) {
+        //     if (evt.detail.elt.id === 'submit-button') {
+        //         let response = JSON.parse(evt.detail.xhr.responseText)
+        //         editor2.setValue(response.msg)
+        //     }
+        //     if (evt.detail.elt.id === "file-upload") {
+        //         let response = JSON.parse(evt.detail.xhr.responseText)
+        //         editor.setValue(response.msg)
+        //     }
+        // });
+
+        document.addEventListener('keydown', function (event) {
+            if (event.ctrlKey && event.key === 'Enter') {
+                document.getElementById("submit-button").click()
+            }
+        })
+
+        document.addEventListener("click", () => {
+            if (!document.querySelector(".editor__menu").contains(event.target)) {
+                const menu = document.querySelector(".editor__menu-content");
+                menu.classList.remove("on-off-toggle");
+            }
+        })
+        // Client side functionality for reading the uploaded file
+        // const readTheUploadedFile = () => {
+        //     let file = document.getElementById("upload-file").files[0];
+        //     let reader = new FileReader();
+        //     reader.readAsText(file);
+        //     reader.onload = function () {
+        //         editor.setValue(reader.result);
+        //     };
+        //     reader.onerror = function () {
+        //         console.log(reader.error);
+        //     };
+        // };
+
+    </script>
+</body>
+
+</html>
