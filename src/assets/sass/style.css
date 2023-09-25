@@ -1575,6 +1575,7 @@ button {
   position: absolute;
   top: 25px !important;
   left: 24px !important;
+  z-index: 100;
 }
 .dropdown-wrapper {
   display: none;
@@ -1625,7 +1626,7 @@ button {
   justify-content: center;
   font-weight: 500;
   background-color: #2d2f34;
-  z-index: 100;
+  z-index: 50;
 }
 @media (max-width: 768px) {
   .mobile-top-bar {
@@ -2329,9 +2330,20 @@ button {
   background-color: #1c2130 !important;
   box-shadow: none !important;
   top: 102px;
-  left: 671px;
+  left: 45%;
   text-wrap: nowrap;
   animation: animation 0.5s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .toast {
+    left: 40%;
+  }
+}
+@media (max-width: 500px) {
+  .toast {
+    left: 35%;
+  }
 }
 
 @keyframes animation {
