@@ -1,0 +1,29 @@
+<div class="pills-wrapper">
+    <a class="pill code-pill" data-active="code-wrapper" href="/#code-wrapper">Code</a>
+    <a class="pill output-pill" data-active="output" href="/#output">Output</a>
+</div>
+
+<script>
+    window.addEventListener("scroll", () => {
+        let currentSection = "";
+
+        const editors = document.querySelectorAll(".section__editor");
+        const pills = document.querySelectorAll(".pill");
+
+        editors.forEach((editor) => {
+            const editorTop = editor.offsetTop;
+            const editorHeight = editor.clientHeight;
+
+            if (scrollY >= editorTop - editorHeight / 5) {
+                currentSection = editor.getAttribute("id");
+            }
+        });
+
+        pills.forEach((pill) => {
+            pill.classList.remove("toggle-active");
+            if (pill.dataset.active === currentSection) {
+                pill.classList.add("toggle-active");
+            }
+        });
+    });
+</script>

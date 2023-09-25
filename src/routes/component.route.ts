@@ -13,6 +13,7 @@ import {
   runCode,
   getCopyToast,
   readTheUploadedFile,
+  toggleButton,
 } from "../controller/component.controller.js";
 
 const router = Router();
@@ -44,5 +45,7 @@ router.route("/otherToolsEjs").get(getOtherToolsItems);
 router.route("/copy").get(getCopyToast);
 
 router.route("/uploadFile").post(upload.single("myFile"), readTheUploadedFile);
+
+router.route("/toggleButton").get(toggleButton);
 
 export default router;

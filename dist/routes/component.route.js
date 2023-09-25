@@ -1,6 +1,6 @@
 import { Router } from "express";
 import multer from "multer";
-import { headerComponent, inputHeaderComponent, getContentWrapperComponent, getFooter, getMenuItems, getOtherToolsComponent, getOtherToolsItems, getOutputHeaderComponent, runCode, getCopyToast, readTheUploadedFile, } from "../controller/component.controller.js";
+import { headerComponent, inputHeaderComponent, getContentWrapperComponent, getFooter, getMenuItems, getOtherToolsComponent, getOtherToolsItems, getOutputHeaderComponent, runCode, getCopyToast, readTheUploadedFile, toggleButton, } from "../controller/component.controller.js";
 const router = Router();
 // Set up the multer storage for file uploads
 const storage = multer.memoryStorage();
@@ -17,5 +17,6 @@ router.route("/menu").get(getMenuItems);
 router.route("/otherToolsEjs").get(getOtherToolsItems);
 router.route("/copy").get(getCopyToast);
 router.route("/uploadFile").post(upload.single("myFile"), readTheUploadedFile);
+router.route("/toggleButton").get(toggleButton);
 export default router;
 //# sourceMappingURL=component.route.js.map

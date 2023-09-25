@@ -98,4 +98,7 @@ export const readTheUploadedFile = (req, res) => {
         });
     }
 };
+export const toggleButton = (req, res) => {
+    res.render(path.join(dirName(), "src/views", "toggleButton.ejs"));
+};
 //# sourceMappingURL=component.controller.js.map

@@ -6,33 +6,31 @@
 </head>
 
 <body>
-    <nav class="nav">
-        <div class="container nav-wrapper">
-            <a href="https://programiz.pro/" class="logo">
-                <span class="logo__img-wrapper">
-                    <img src="assets/images/Programiz PRO Logo.svg" alt="logo">
-                </span>
-                <span class="logo-tag">Pro</span>
-            </a>
-            <ul class="nav__list" title="Other Tools" id="nav-list">
-                <li class="nav__item">
-                    <div hx-get="/menu" hx-trigger="click" hx-target="#header-navbar" hx-swap="innerHTML">
-                        <button class="dropdown-button tool-select">
-                            <div class="tool-text">JSON to YAML Converter</div><svg stroke="currentColor" fill="none"
-                                stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"
-                                class="chevron-down" color="#FFF" style="color:#FFF" height="12" width="12"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </button>
-                    </div>
-                </li>
-                <div class="pro-popover-content popover-bottomRight has-arrow pro-dropdown ready dropdown-wrapper"
-                    style="top: 46.6px; left: 338.8px;" id="header-navbar">
+    <div class="container nav-wrapper">
+        <a href="https://programiz.pro/" class="logo">
+            <span class="logo__img-wrapper">
+                <img src="assets/images/Programiz PRO Logo.svg" alt="logo">
+            </span>
+            <span class="logo-tag">Pro</span>
+        </a>
+        <ul class="nav__list" title="Other Tools" id="nav-list">
+            <li class="nav__item">
+                <div hx-get="/menu" hx-trigger="click" hx-target="#header-navbar" hx-swap="innerHTML">
+                    <button class="dropdown-button tool-select">
+                        <div class="tool-text">JSON to YAML Converter</div><svg stroke="currentColor" fill="none"
+                            stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"
+                            class="chevron-down" color="#FFF" style="color:#FFF" height="12" width="12"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
                 </div>
-            </ul>
-        </div>
-    </nav>
+            </li>
+            <div class="pro-popover-content popover-bottomRight has-arrow pro-dropdown ready dropdown-wrapper"
+                style="top: 46.6px; left: 338.8px;" id="header-navbar">
+            </div>
+        </ul>
+    </div>
     <script>
         const navList = document.getElementById("nav-list")
         navList.addEventListener("click", () => {

@@ -1,6 +1,7 @@
 let editor;
 let editor2;
 let jsonData;
+let hideToastTimeOut;
 
 require.config({
   paths: { vs: "https://unpkg.com/monaco-editor@latest/min/vs" },
@@ -58,9 +59,10 @@ const showMenu = () => {
 };
 
 const copyCode = () => {
+  clearTimeout(hideToastTimeOut);
   let code = editor2.getValue();
   navigator.clipboard.writeText(code);
-  setTimeout(() => {
+  hideToastTimeOut = setTimeout(() => {
     document.querySelector(".toast").style.animation =
       "hide-toast 0.5s ease-in-out forwards";
   }, 3000);

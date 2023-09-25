@@ -2,6 +2,8 @@
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <script src="https://unpkg.com/htmx.org@1.9.5"></script>
     <script src="https://unpkg.com/monaco-editor@latest/min/vs/loader.js"></script>
     <link rel="stylesheet" href="/assets/sass//pro-utils.css">
@@ -13,19 +15,23 @@
     <div class="toast__wrapper">
         <div id="toastify"></div>
     </div>
-    <div hx-get="/header" hx-trigger="load">
+    <nav hx-get="/header" hx-trigger="load" class="nav">
+        Loading...
+    </nav>
+    <!-- Only shows in tablet and mobile view -->
+    <div hx-get="/toggleButton" hx-trigger="load" class="mobile-top-bar">
         Loading...
     </div>
     <div class="editor">
         <div class="container editor__wrapper">
-            <div class="editor__input section__editor editor--half-width" id="input">
+            <div class="editor__input section__editor editor--half-width" id="code-wrapper">
                 <div hx-get="/inputHeader" hx-trigger="load" class="editor__header">
                     Loading..
                 </div>
                 <div id="editorContainer" style="height: 500px; width: auto;" hx-trigger="load"
                     data-code="// write your json code here" data-isOutput="false" class="editor__code"></div>
             </div>
-            <div class="editor__output section__editor">
+            <div class="editor__output section__editor" id="output">
                 <div class="editor__output-header" hx-get="/outputHeader" hx-trigger="load">
                     Loading...
                 </div>

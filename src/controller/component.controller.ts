@@ -120,3 +120,7 @@ export const readTheUploadedFile = (req: Request, res: Response) => {
     });
   }
 };
+
+export const toggleButton = (req: Request, res: Response) => {
+  res.render(path.join(dirName(), "src/views", "toggleButton.ejs"));
+};
