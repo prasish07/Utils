@@ -84,4 +84,6 @@ While working on this project and utilizing HTMX for client-side functionality, 
 
 4. **Uploading Code to the Editor:** Similar to running code, uploading code to the editor can be challenging. Managing the transfer of code from the client to the editor on the server and ensuring a smooth and responsive user experience can be a complex task.
 
+5. **Adding Hotkeys:** When adding hotkeys to the project, we encountered a unique challenge. HTMX provides a convenient way to trigger actions with the `hx-trigger` attribute, such as `[keydown]`. However, this attribute is primarily effective when an element is in focus, making it unsuitable for global hotkeys that should work regardless of the element's focus state. To address this, we had to implement hotkey functionality using client-side JavaScript to capture keyboard events globally, enabling us to trigger actions like running code with specific key combinations (e.g., Ctrl + Enter).
+
 These limitations highlight scenarios where HTMX, while providing significant benefits in terms of interactive and dynamic web applications, may not fully replace the need for certain client-side functionalities or may introduce complexity in handling specific tasks.
