@@ -33,7 +33,7 @@ This project leverages EJS to create dynamic templates that can be rendered by t
 
 EJS (Embedded JavaScript) is a powerful templating language used in this project to dynamically generate flexible HTML templates on the server-side. These templates are rendered by the Node.js server at different endpoints, enabling data-driven content generation and dynamic user experiences.
 
-In this project, we have utilized ten different EJS templates for various purposes:
+In this project, we have utilized eleven different EJS templates for various purposes:
 
 1. **header.ejs**: Generated when a GET request is sent to the `/header` endpoint. This template returns an HTMX element.
 
@@ -54,6 +54,8 @@ In this project, we have utilized ten different EJS templates for various purpos
 9. **outputEditor.ejs**: Generated when a POST request is sent to the `/runCode` endpoint. This template provides an editor with the converted code in YAML format when the convert button is clicked.
 
 10. **footer.ejs**: Generated when a GET request is sent to the `/footer.ejs` endpoint. This template provides the HTML elements for the footer.
+
+11. **toggleButton.ejs**: Generated when a GET request is sent to the `/toggleButton.ejs` endpoint. This template provides the HTML elements to toggle between input editor and output editor in mobile view.
 
 These EJS templates play a crucial role in creating dynamic and interactive web pages, allowing for the seamless generation of content and user interface elements based on various user interactions and data inputs.
 
