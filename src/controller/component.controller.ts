@@ -109,7 +109,6 @@ export const readTheUploadedFile = (req: Request, res: Response) => {
 
   if (extension.toLowerCase() === "json") {
     let fileContent = uploadedFile.buffer.toString("utf8");
-    console.log("file content", fileContent);
     fileContent = JSON.parse(fileContent);
     res.render(path.join(dirName(), "src/views", "inputEditor.ejs"), {
       code: fileContent,

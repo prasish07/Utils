@@ -12,7 +12,6 @@ import ejs from "ejs";
 
 const app = express();
 const port = process.env.PORT || 3000;
-console.log(dirName());
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
