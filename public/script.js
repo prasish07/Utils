@@ -10,9 +10,6 @@ require(["vs/editor/editor.main"], function () {
   let code = document
     .getElementById("editorContainer")
     .getAttribute("data-code");
-  let outputCode = document
-    .getElementById("editorContainer2")
-    .getAttribute("data-code");
   monaco.editor.defineTheme("myTheme", {
     base: "vs-dark",
     inherit: true,
@@ -21,7 +18,6 @@ require(["vs/editor/editor.main"], function () {
       "editor.background": "#1C2130",
     },
   });
-  let submitButton;
   editor = monaco.editor.create(document.getElementById("editorContainer"), {
     value: code,
     language: "json",
